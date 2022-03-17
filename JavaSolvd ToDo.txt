@@ -1,0 +1,10 @@
+1+ - hw1 to intelige project 
+2+ - split classes to seperate files
+3?- function that retunns sorted array (not just print)
+- still doesnt work
+
+//
+
+- git upload
+
+copy and redo +
