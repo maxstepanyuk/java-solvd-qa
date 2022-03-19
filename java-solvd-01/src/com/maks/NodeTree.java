@@ -29,10 +29,8 @@ public class NodeTree {
 		}
 
 		if (inValue < inRootNode.getValue()) {
-//			inRootNode.left =  insertNextNode(  inRootNode.getLeft(), inValue  );
 			inRootNode.setLeft(  insertNextNode(  inRootNode.getLeft(), inValue  )  );
 		}		else if (inValue >= inRootNode.getValue())		{
-//			inRootNode.right = insertNextNode(inRootNode.getRight(), inValue  );
 			inRootNode.setRight(insertNextNode(inRootNode.getRight(), inValue));
 		}
 		return inRootNode;
@@ -42,7 +40,7 @@ public class NodeTree {
 	public void printTree() {
 		System.out.print( "tree : " );
 		printNodeTree(rootNode);
-		System.out.print( "end\n" );
+		System.out.print( ".\n" );
 	}
 
 	private void printNodeTree(Node inRootNode) {
