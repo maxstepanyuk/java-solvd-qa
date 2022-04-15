@@ -4,9 +4,13 @@ import com.maks.Enum.Gender;
 import com.maks.Enum.Position;
 import com.maks.Interfaces.IEmployee;
 
+import org.apache.log4j.Logger;
+
 import java.time.LocalDate;
 
 public final class Employee extends User implements IEmployee {
+
+	private static final Logger LOGGER = Logger.getLogger(Employee.class);
 
 	private LocalDate hireDate;
 	private LocalDate fireDate;
@@ -66,10 +70,10 @@ public final class Employee extends User implements IEmployee {
 	}
 
 	public void takeVacation(){
-		System.out.println("Employee " + getName() +  " vent on a vacation");
+		LOGGER.info("Employee " + getName() +  " vent on a vacation");
 	}
 
 	public void returnToWork(){
-		System.out.println("Employee " + getName() +  " returned from vacation");
+		LOGGER.info("Employee " + getName() +  " returned from vacation");
 	}
 }

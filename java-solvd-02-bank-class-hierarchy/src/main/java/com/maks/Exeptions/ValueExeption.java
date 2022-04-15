@@ -1,7 +1,7 @@
 package com.maks.Exeptions;
 
-public class TransactionExeption extends Exception {
-	public TransactionExeption(String message){
+public class ValueExeption extends Exception {
+	public ValueExeption(String message){
 		super(message);
 	}
 }

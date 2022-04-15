@@ -2,9 +2,13 @@ package com.maks.Classes;
 
 import com.maks.Enum.Gender;
 
+import org.apache.log4j.Logger;
+
 import java.time.LocalDate;
 
 public abstract class Human {
+
+    private static final Logger LOGGER = Logger.getLogger(Human.class);
 
     private String name;
     private String surname;

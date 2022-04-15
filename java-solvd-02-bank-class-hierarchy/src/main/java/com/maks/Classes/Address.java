@@ -1,6 +1,10 @@
 package com.maks.Classes;
 
+import org.apache.log4j.Logger;
+
 public final class Address {
+
+    private static final Logger LOGGER = Logger.getLogger(Address.class);
 
     private String country;
     private String city;

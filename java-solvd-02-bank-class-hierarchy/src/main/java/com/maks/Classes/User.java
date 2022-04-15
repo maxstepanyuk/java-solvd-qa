@@ -2,9 +2,13 @@ package com.maks.Classes;
 
 import com.maks.Enum.Gender;
 
+import org.apache.log4j.Logger;
+
 import java.time.LocalDate;
 
 public abstract class User extends Human {
+
+    private static final Logger LOGGER = Logger.getLogger(Human.class);
 
     private String phone;
     private String email;
@@ -74,6 +78,4 @@ public abstract class User extends Human {
                 ", passwordReminder='" + passwordReminder + '\'' +
                 "} " + super.toString();
     }
-
-
 }

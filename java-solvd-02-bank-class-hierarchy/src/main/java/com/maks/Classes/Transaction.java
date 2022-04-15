@@ -1,8 +1,13 @@
 package com.maks.Classes;
 
+import org.apache.log4j.Logger;
+
 import java.time.LocalDateTime;
 
 public final class Transaction {
+
+    private static final Logger LOGGER = Logger.getLogger(Transaction.class);
+
     private BankAccount fromAccount;
     private BankAccount toAccount;
     private float currentBalanceFrom;

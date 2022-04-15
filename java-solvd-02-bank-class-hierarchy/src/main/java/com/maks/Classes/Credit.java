@@ -1,8 +1,13 @@
 package com.maks.Classes;
 
+import org.apache.log4j.Logger;
+
 import java.time.LocalDate;
 
 public final class Credit {
+
+	private static final Logger LOGGER = Logger.getLogger(Credit.class);
+
 	private float amount;
 	private float present;
 	private LocalDate createdDate;

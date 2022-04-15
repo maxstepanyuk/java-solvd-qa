@@ -3,11 +3,18 @@ package com.maks.Classes;
 import com.maks.Enum.AccountType;
 import com.maks.Enum.BankNetwork;
 import com.maks.Exeptions.TransactionExeption;
+import com.maks.Exeptions.ValueExeption;
+
 import com.maks.Interfaces.IKeepMoney;
+
+import org.apache.log4j.Logger;
 
 import java.time.LocalDate;
 
-public class BankAccount implements IKeepMoney {
+public final class BankAccount implements IKeepMoney {
+
+	private static final Logger LOGGER = Logger.getLogger(BankAccount .class);
+
 	private float balance;
 	private String number;
 	private LocalDate expireDate;
@@ -133,7 +140,6 @@ public class BankAccount implements IKeepMoney {
 	}
 
 	public void withdrawMoney(float amount){
-
 		try{
 			if (amount <= balance && amount < withdrawLimit){
 				balance = balance - amount;
@@ -142,43 +148,26 @@ public class BankAccount implements IKeepMoney {
 				throw new TransactionExeption("unable to withdraw");
 			}
 		} catch (TransactionExeption e) {
-			System.out.println("Exception :" + e);
+			LOGGER.warn("Exception :" + e +  "; " + e.getStackTrace());
 		}
-
 	}
 
 	public void addMoney(float amount){
 		balance = balance + amount;
 	}
 
-//	todo - to client
-//	public void transferTo(BankAccount toBankAccount, float amount){
-//
-//		try{
-//
-//			if (amount <= balance){
-//				balance = balance - amount;
-//				toBankAccount.add(amount);
-//			}else {
-////				System.out.println("unable to transferTo");
-//				//throw new
-//			}
-//		} catch (Exception exception){
-//			System.out.println(exception);
-//		}
-//
-//	}
+	public static final void trasfer(BankAccount bankAccountFrom, BankAccount bankAccountTo, float amount){
 
-	public static final void trasfer(BankAccount from, BankAccount to, float amount){
-
-//		try {
-			from.withdrawMoney(amount);
-			to.addMoney(amount);
-//		} catch (Exception exception){
-//			System.out.println("Exaption: " + exception);
-//		}
+		try {
+			if (bankAccountFrom.getBalance() >= amount){
+				bankAccountFrom.withdrawMoney(amount);
+				bankAccountTo.addMoney(amount);
+			} else {
+				throw new TransactionExeption("unable to transfer because unable to withdraw");
+			}
+		} catch (TransactionExeption e){
+			LOGGER.warn("Exception :" + e +  "; " + e.getStackTrace());
+		}
 	}
-
-
 
 }

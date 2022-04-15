@@ -1,8 +1,12 @@
 package com.maks.Classes;
 
+import org.apache.log4j.Logger;
+
 import java.util.ArrayList;
 
 public final class Bank {
+
+	private static final Logger LOGGER = Logger.getLogger(Bank.class);
 
 	private String name;
 	private ArrayList<BankBranch> branches;

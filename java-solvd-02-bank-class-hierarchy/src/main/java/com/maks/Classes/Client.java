@@ -4,10 +4,14 @@ import com.maks.Enum.Gender;
 import com.maks.Interfaces.IKeepBankAccounts;
 import com.maks.Interfaces.IKeepCredits;
 
+import org.apache.log4j.Logger;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 
 public final class Client extends User implements IKeepBankAccounts, IKeepCredits {
+
+	private static final Logger LOGGER = Logger.getLogger(Client.class);
 
 	private LocalDate regDate;
 	private ArrayList<BankAccount> bankAccounts;

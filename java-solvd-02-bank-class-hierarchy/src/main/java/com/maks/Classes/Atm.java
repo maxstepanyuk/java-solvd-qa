@@ -1,6 +1,11 @@
 package com.maks.Classes;
 
+import org.apache.log4j.Logger;
+
 public final class Atm {
+
+    private static final Logger LOGGER = Logger.getLogger(Atm.class);
+
     private Employee responsibleEmployee;
     private Address address;
 
