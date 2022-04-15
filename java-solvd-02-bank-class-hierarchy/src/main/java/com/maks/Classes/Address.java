@@ -1,6 +1,6 @@
 package com.maks.Classes;
 
-public class Address {
+public final class Address {
 
     private String country;
     private String city;

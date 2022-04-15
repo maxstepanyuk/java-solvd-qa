@@ -2,11 +2,13 @@ package com.maks.Classes;
 
 import com.maks.Enum.AccountType;
 import com.maks.Enum.BankNetwork;
+import com.maks.Exeptions.TransactionExeption;
+import com.maks.Interfaces.IKeepMoney;
 
 import java.time.LocalDate;
 
-public class BankAccount {
-	private float ballance;
+public class BankAccount implements IKeepMoney {
+	private float balance;
 	private String number;
 	private LocalDate expireDate;
 	private LocalDate createdDate;
@@ -20,9 +22,9 @@ public class BankAccount {
 	public BankAccount() {
 	}
 
-	public BankAccount(float ballance, String number, LocalDate expireDate, LocalDate createdDate, String cvvCode,
+	public BankAccount(float balance, String number, LocalDate expireDate, LocalDate createdDate, String cvvCode,
 					   String currency, AccountType accountType, Employee creator, float withdrawLimit, BankNetwork creditCardType) {
-		this.ballance = ballance;
+		this.balance = balance;
 		this.number = number;
 		this.expireDate = expireDate;
 		this.createdDate = createdDate;
@@ -34,12 +36,12 @@ public class BankAccount {
 		this.network = creditCardType;
 	}
 
-	public float getBallance() {
-		return ballance;
+	public float getBalance() {
+		return balance;
 	}
 
-	public void setBallance(float ballance) {
-		this.ballance = ballance;
+	public void setBalance(float balance) {
+		this.balance = balance;
 	}
 
 	public String getNumber() {
@@ -117,7 +119,7 @@ public class BankAccount {
 	@Override
 	public String toString() {
 		return "BankAccount{" +
-				"ballance=" + ballance +
+				"balance=" + balance +
 				", number='" + number + '\'' +
 				", expireDate=" + expireDate +
 				", createdDate=" + createdDate +
@@ -130,29 +132,53 @@ public class BankAccount {
 				'}';
 	}
 
-	public void withdraw(float amount){
-		if (amount <= ballance){
-			ballance = ballance - amount;
-			System.out.println("withdrew " + amount + " " + currency);
-		}else {
-			System.out.println("unable to withdraw");
+	public void withdrawMoney(float amount){
+
+		try{
+			if (amount <= balance && amount < withdrawLimit){
+				balance = balance - amount;
+				System.out.println("withdrew " + amount + " " + currency);
+			}else {
+				throw new TransactionExeption("unable to withdraw");
+			}
+		} catch (TransactionExeption e) {
+			System.out.println("Exception :" + e);
 		}
+
 	}
 
-	public void add(float amount){
-		this.ballance = this.ballance + amount;
+	public void addMoney(float amount){
+		balance = balance + amount;
 	}
 
-	public void transferTo(BankAccount toBankAccount, float amount){ //todo - toBankAccount як посилання
-		if (amount <= this.ballance){
-			this.ballance = this.ballance - amount;
-			toBankAccount.add(amount);
+//	todo - to client
+//	public void transferTo(BankAccount toBankAccount, float amount){
+//
+//		try{
+//
+//			if (amount <= balance){
+//				balance = balance - amount;
+//				toBankAccount.add(amount);
+//			}else {
+////				System.out.println("unable to transferTo");
+//				//throw new
+//			}
+//		} catch (Exception exception){
+//			System.out.println(exception);
+//		}
+//
+//	}
 
-			//todo create to transaction (and move to client or and a "wrapper" function?)
-		}else {
-			System.out.println("unable to transferTo");
-		}
+	public static final void trasfer(BankAccount from, BankAccount to, float amount){
+
+//		try {
+			from.withdrawMoney(amount);
+			to.addMoney(amount);
+//		} catch (Exception exception){
+//			System.out.println("Exaption: " + exception);
+//		}
 	}
+
 
 
 }

@@ -1,23 +1,21 @@
 package com.maks.Classes;
 
-import com.maks.Classes.BankAccount;
-import com.maks.Classes.Client;
-import com.maks.Classes.User;
+import com.maks.Enum.Gender;
 import com.maks.Enum.Position;
+import com.maks.Interfaces.IEmployee;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 
-public class Employee extends User {
+public final class Employee extends User implements IEmployee {
 
 	private LocalDate hireDate;
 	private LocalDate fireDate;
 	private float workHours;
 	private Position position;
 
-	public Employee(String name, String surname, String gender, LocalDate birthDate, String phone, String email,
-	                String login, String password, String passwordReminder, LocalDate hireDate, LocalDate fireDate,
-	                float workHours, Position position) {
+	public Employee(String name, String surname, Gender gender, LocalDate birthDate, String phone,
+	                String email, String login, String password, String passwordReminder, LocalDate hireDate,
+	                LocalDate fireDate, float workHours, Position position) {
 		super(name, surname, gender, birthDate, phone, email, login, password, passwordReminder);
 		this.hireDate = hireDate;
 		this.fireDate = fireDate;
@@ -59,14 +57,19 @@ public class Employee extends User {
 
 	@Override
 	public String toString() {
-		return "Employee{" + "name='" + name + '\'' +
-				", surname='" + surname + '\'' +
-				", gender='" + gender + '\'' +
-				", birthDate=" + birthDate +
-				", hireDate=" + hireDate +
+		return "Employee{" +
+				"hireDate=" + hireDate +
 				", fireDate=" + fireDate +
 				", workHours=" + workHours +
 				", position=" + position +
-				'}';
+				"} " + super.toString();
+	}
+
+	public void takeVacation(){
+		System.out.println("Employee " + getName() +  " vent on a vacation");
+	}
+
+	public void returnToWork(){
+		System.out.println("Employee " + getName() +  " returned from vacation");
 	}
 }

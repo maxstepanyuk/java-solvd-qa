@@ -1,17 +1,15 @@
 package com.maks.Classes;
 
-public class Atm {
+public final class Atm {
     private Employee responsibleEmployee;
     private Address address;
-    private boolean iaAdressOfAjesindBuilding;
 
     public Atm() {
     }
 
-    public Atm(Employee responsibleEmployee, Address address, boolean adressOfAjesindBuilding) {
+    public Atm(Employee responsibleEmployee, Address address) {
         this.responsibleEmployee = responsibleEmployee;
         this.address = address;
-        this.iaAdressOfAjesindBuilding = adressOfAjesindBuilding;
     }
 
     public Employee getResponsibleEmployee() {
@@ -30,20 +28,11 @@ public class Atm {
         this.address = address;
     }
 
-    public boolean isIaAdressOfAjesindBuilding() {
-        return iaAdressOfAjesindBuilding;
-    }
-
-    public void setIaAdressOfAjesindBuilding(boolean iaAdressOfAjesindBuilding) {
-        this.iaAdressOfAjesindBuilding = iaAdressOfAjesindBuilding;
-    }
-
     @Override
     public String toString() {
         return "Atm{" +
                 "responsibleEmployee=" + responsibleEmployee +
                 ", address=" + address +
-                ", adressOfAjesindBuilding=" + iaAdressOfAjesindBuilding +
                 '}';
     }
 }

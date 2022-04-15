@@ -1,9 +1,13 @@
 package com.maks.Classes;
 
+import com.maks.Enum.Gender;
+import com.maks.Interfaces.IKeepBankAccounts;
+import com.maks.Interfaces.IKeepCredits;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Client extends User {
+public final class Client extends User implements IKeepBankAccounts, IKeepCredits {
 
 	private LocalDate regDate;
 	private ArrayList<BankAccount> bankAccounts;
@@ -12,7 +16,7 @@ public class Client extends User {
 	public Client() {
 	}
 
-	public Client(String name, String surname, String gender, LocalDate birthDate, String phone,
+	public Client(String name, String surname, Gender gender, LocalDate birthDate, String phone,
 	              String email, String login, String password, String passwordReminder, LocalDate regDate,
 	              ArrayList<BankAccount> bankAccounts, ArrayList<Credit> credits) {
 		super(name, surname, gender, birthDate, phone, email, login, password, passwordReminder);
@@ -63,13 +67,10 @@ public class Client extends User {
 
 	@Override
 	public String toString() {
-		return "Client{" + "regDate=" + regDate +
+		return "Client{" +
+				"regDate=" + regDate +
 				", bankAccounts=" + bankAccounts +
 				", credits=" + credits +
-				", name='" + name + '\'' +
-				", surname='" + surname + '\'' +
-				", gender='" + gender + '\'' +
-				", birthDate=" + birthDate +
-				'}';
+				"} " + super.toString();
 	}
 }

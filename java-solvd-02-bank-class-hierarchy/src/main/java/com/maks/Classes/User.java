@@ -1,8 +1,10 @@
 package com.maks.Classes;
 
+import com.maks.Enum.Gender;
+
 import java.time.LocalDate;
 
-public class User extends Human {
+public abstract class User extends Human {
 
     private String phone;
     private String email;
@@ -13,8 +15,7 @@ public class User extends Human {
     public User() {
     }
 
-    public User(String name, String surname, String gender, LocalDate birthDate,
-                String phone, String email, String login, String password, String passwordReminder) {
+    public User(String name, String surname, Gender gender, LocalDate birthDate, String phone, String email, String login, String password, String passwordReminder) {
         super(name, surname, gender, birthDate);
         this.phone = phone;
         this.email = email;
@@ -66,15 +67,13 @@ public class User extends Human {
     @Override
     public String toString() {
         return "User{" +
-                "name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", gender='" + gender + '\'' +
-                ", birthDate=" + birthDate +
-                ", phone='" + phone + '\'' +
+                "phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 ", login='" + login + '\'' +
                 ", password='" + password + '\'' +
                 ", passwordReminder='" + passwordReminder + '\'' +
-                '}';
+                "} " + super.toString();
     }
+
+
 }

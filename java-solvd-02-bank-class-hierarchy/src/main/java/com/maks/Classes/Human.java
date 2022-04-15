@@ -1,17 +1,19 @@
 package com.maks.Classes;
 
+import com.maks.Enum.Gender;
+
 import java.time.LocalDate;
 
-public class Human {
+public abstract class Human {
 
-    protected String name;
-    protected String surname;
-    protected String gender;
-    protected LocalDate birthDate;
+    private String name;
+    private String surname;
+    private Gender gender;
+    private LocalDate birthDate;
 
     public Human() {}
 
-    public Human(String name, String surname, String gender, LocalDate birthDate) {
+    public Human(String name, String surname, Gender gender, LocalDate birthDate) {
         this.name = name;
         this.surname = surname;
         this.gender = gender;
@@ -34,11 +36,11 @@ public class Human {
         this.surname = surname;
     }
 
-    public String getGender() {
+    public Gender getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
 
@@ -50,13 +52,13 @@ public class Human {
         this.birthDate = birthDate;
     }
 
+    @Override
     public String toString() {
         return "Human{" +
                 "name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
-                ", gender='" + gender + '\'' +
+                ", gender=" + gender +
                 ", birthDate=" + birthDate +
                 '}';
     }
-
 }

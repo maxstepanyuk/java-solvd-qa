@@ -2,7 +2,7 @@ package com.maks.Classes;
 
 import java.time.LocalDate;
 
-public class Credit {
+public final class Credit {
 	private float amount;
 	private float present;
 	private LocalDate createdDate;

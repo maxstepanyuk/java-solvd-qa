@@ -2,8 +2,7 @@ package com.maks.Classes;
 
 import java.util.ArrayList;
 
-//todo - bank
-public class Bank {
+public final class Bank {
 
 	private String name;
 	private ArrayList<BankBranch> branches;
@@ -91,7 +90,7 @@ public class Bank {
 		branches.remove(bankBranch);
 	}
 
-	public void addClent(Client client){
+	public void addClient(Client client){
 		clients.add(client);
 	}
 

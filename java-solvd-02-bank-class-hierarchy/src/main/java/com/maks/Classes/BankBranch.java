@@ -2,7 +2,7 @@ package com.maks.Classes;
 
 import java.util.ArrayList;
 
-public class BankBranch {
+public final class BankBranch {
 
     private Address address;
     private String phone;

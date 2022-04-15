@@ -2,7 +2,7 @@ package com.maks.Classes;
 
 import java.time.LocalDateTime;
 
-public class Transaction {
+public final class Transaction {
     private BankAccount fromAccount;
     private BankAccount toAccount;
     private float currentBalanceFrom;
