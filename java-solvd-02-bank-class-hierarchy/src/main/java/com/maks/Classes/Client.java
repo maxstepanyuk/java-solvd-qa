@@ -37,34 +37,42 @@ public final class Client extends User implements IKeepBankAccounts, IKeepCredit
 		this.regDate = regDate;
 	}
 
+	@Override
 	public ArrayList<BankAccount> getBankAccounts() {
 		return bankAccounts;
 	}
 
+	@Override
 	public void setBankAccounts(ArrayList<BankAccount> bankAccounts) {
 		this.bankAccounts = bankAccounts;
 	}
 
+	@Override
 	public void addBankAccount(BankAccount bankAccount) {
 		bankAccounts.add(bankAccount);
 	}
 
+	@Override
 	public void removeBankAccount(BankAccount bankAccount) {
 		bankAccounts.remove(bankAccount);
 	}
 
+	@Override
 	public void setCredits(ArrayList<Credit> credits) {
 		this.credits = credits;
 	}
 
+	@Override
 	public ArrayList<Credit> getCredits() {
 		return credits;
 	}
 
+	@Override
 	public void addCredit(Credit credit) {
 		credits.add(credit);
 	}
 
+	@Override
 	public void removeCredit(Credit credit) {
 		credits.remove(credit);
 	}

@@ -69,11 +69,13 @@ public final class Employee extends User implements IEmployee {
 				"} " + super.toString();
 	}
 
-	public void takeVacation(){
-		LOGGER.info("Employee " + getName() +  " vent on a vacation");
+	@Override
+	public void takeVacation() {
+		LOGGER.info("Employee " + getName() + " vent on a vacation");
 	}
 
-	public void returnToWork(){
-		LOGGER.info("Employee " + getName() +  " returned from vacation");
+	@Override
+	public void returnToWork() {
+		LOGGER.info("Employee " + getName() + " returned from vacation");
 	}
 }

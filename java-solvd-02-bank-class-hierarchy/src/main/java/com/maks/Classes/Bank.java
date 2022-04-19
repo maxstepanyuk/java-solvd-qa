@@ -86,51 +86,51 @@ public final class Bank {
 		this.accounts = accounts;
 	}
 
-	public void addBranch(BankBranch bankBranch){
+	public void addBranch(BankBranch bankBranch) {
 		branches.add(bankBranch);
 	}
 
-	public void removeBranch(BankBranch bankBranch){
+	public void removeBranch(BankBranch bankBranch) {
 		branches.remove(bankBranch);
 	}
 
-	public void addClient(Client client){
+	public void addClient(Client client) {
 		clients.add(client);
 	}
 
-	public void removeClient(Client client){
+	public void removeClient(Client client) {
 		clients.remove(client);
 	}
 
-	public void addTransaction(Transaction transaction){
+	public void addTransaction(Transaction transaction) {
 		transactions.add(transaction);
 	}
 
-	public void removeTransaction(Transaction transaction){
+	public void removeTransaction(Transaction transaction) {
 		transactions.remove(transaction);
 	}
 
-	public void addEmployee(Employee employee){
+	public void addEmployee(Employee employee) {
 		employees.add(employee);
 	}
 
-	public void removeEmployee(Employee employee){
+	public void removeEmployee(Employee employee) {
 		employees.remove(employee);
 	}
 
-	public void addCredit(Credit credit){
+	public void addCredit(Credit credit) {
 		credits.add(credit);
 	}
 
-	public void removeCredit(Credit credit){
+	public void removeCredit(Credit credit) {
 		credits.remove(credit);
 	}
 
-	public void addBankAccount (BankAccount account){
+	public void addBankAccount(BankAccount account) {
 		accounts.add(account);
 	}
 
-	public void removeBankAccount (BankAccount account){
+	public void removeBankAccount(BankAccount account) {
 		accounts.remove(account);
 	}
 
